@@ -1,0 +1,106 @@
+<!doctype html>
+<title>Example</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+}
+
+div.container{
+  padding: 10px 0;
+}
+
+#main {
+  display: flex;
+  flex: 1;
+}
+#main > article {
+  flex: 1;
+}
+#main > nav,
+#main > aside {
+  flex: 0 0 20vw;
+  background: beige;
+}
+#main > nav {
+  order: -1;
+}
+header, footer {
+  background: yellowgreen;
+  height: 20vh;
+}
+header, footer, article, nav, aside {
+  padding: 1em;
+}
+</style>
+<body>
+  <header>Practica 3
+    {%block login%}
+    {% if not username %}
+      <form action="/login" method="POST">
+        <input type="username" name="username" placeholder="Username">
+        <input type="submit" value="Log in">
+      </form>
+      <button><a href="registro"><b>Registro</b></a></button>
+    {% else %}
+      <p>{{session['username']}}</p>
+        <form action="/logout">
+          <button type="submit">Logout</button>
+        </form>
+    {% endif %}
+    {%endblock%}
+  </header>
+  <div id="main">
+    <article>
+      {% block contenido%}
+      {%if username%}
+      Bienvenido {{session['username']}}
+      {%else%}
+      BIENVENIDO
+      {%endif%}
+      {% endblock %}
+    </article>
+    <nav>
+      {% if not username %}
+        <button>
+          <a href="menu1"><b>Menu 1</b></a>
+        </button>
+        <hr>
+        <button>
+          <a href="menu2"><b>Menu 2</b></a>
+        </button>
+        <hr>
+        <button>
+          <a href="menu3"><b>Menu 3</b></a>
+        </button>
+      {%else%}
+        <button>
+          <a href="menu1"><b>Menu 1</b></a>
+        </button>
+        <hr>
+        <button>
+          <a href="menu2"><b>Menu 2</b></a>
+        </button>
+        <hr>
+        <button>
+          <a href="menu3"><b>Menu 3</b></a>
+        </button>
+        <hr>
+        <button>
+          <a href="usuario"><b>Datos Usuario</b></a>
+        </button>
+        <hr>
+        <button>
+          <a href="cambiodatos"><b>Modificar Datos</b></a>
+        </button>
+      {%endif%}
+    </nav>
+    <aside>Aside</aside>
+  </div>
+  <footer>Juan Alberto Rivera Peña</footer>
+</body>

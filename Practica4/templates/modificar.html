@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block styles %}
+  <link href="/static/registro.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+  <div class="container data-form">
+
+  {% if rendered %}
+    <h2>Modificado!!</h2>
+  {% else %}
+    <form method="POST" class="form-signup" action="/modificado">
+      <h2 class="form-signup-heading">Modifica datos restaurante</h2>
+      <input name="oldnameres" type="names" class="form-control" placeholder="Antiguo nombre" required autofocus>
+      <br>
+      <input name="newnameres" type="names" class="form-control" placeholder="Nuevo nombre" required autofocus>
+      <br>
+      <input name="newlong" type="names" class="form-control" placeholder="Nueva longitud" required autofocus>
+      <br>
+      <input name="newlati" type="names" class="form-control" placeholder="Nueva latitud" required autofocus>
+      <br>
+      <input class="btn btn-lg btn-primary btn-block" type="submit" value="modificar" name="submit">
+    </form>
+  {%endif%}
+  </div>
+{% endblock %}

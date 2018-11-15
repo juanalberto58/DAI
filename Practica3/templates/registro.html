@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% block contenido %}
+REGISTRO
+<form action="/registro" method="POST">
+  <p>Introduzca el nombre de usuario</p>
+  <input type="usernamer" name="Nombre" placeholder="Username">
+  <hr>
+  <p>Introduzca el apellido</p>
+  <input type="lastnamer" name="Apellido" placeholder="Lastname">
+  <hr>
+  <p>Introduzca su DNI</p>
+  <input type="dnir" name="DNI" placeholder="DNI">
+  <hr>
+  <input type="submit" value="Registrarse">
+
+</form>
+{% endblock %}

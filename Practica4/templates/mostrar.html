@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block styles %}
+  <link href="/static/registro.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+  <div class="starter-template">
+    <h2 class="form-signup-heading">Restaurantes</h2>
+      <div class="col-sm-4">
+        {%for item in listitem%}
+          {{item.name}}
+          ;;
+        {%endfor%}
+      </div>
+  </div>
+{% endblock %}

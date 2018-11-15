@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block styles %}
+  <link href="/static/registro.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+  <div class="starter-template">
+    <h2 class="form-signup-heading">Busqueda</h2>
+
+    {%for item in nameres%}
+    {{item}}
+    {%endfor%}
+
+  </div>
+{% endblock %}

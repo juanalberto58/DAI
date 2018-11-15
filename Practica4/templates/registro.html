@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <div class="container">
+
+    {% if rendered %}
+      <h2>Gracias por añadir</h2>
+    {% else %}
+    <form method="POST" class="form-signup" action="/registrado">
+      <h2 class="form-signup-heading">Registro</h2>
+      <input name="nusername" type="names" class="form-control" placeholder="Username" required autofocus>
+      <br>
+      <input name="lastname" type="names" class="form-control" placeholder="Lastname" required>
+      <br>
+      <input name="dni" type="names" class="form-control" placeholder="DNI" required autofocus>
+      <br>
+      <input class="btn btn-lg btn-primary btn-block" type="submit" value="registro" name="submit">
+    </form>
+    {%endif%}
+
+  </div>
+{% endblock %}
