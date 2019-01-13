@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block styles %}
+  <link href="/static/registro.css" rel="stylesheet">
+  {% endblock %}
+  {% block content %}
+
+<body>
+  <h2> Restaurantes </h2>
+  <div id=”posts”> {% include 'posts.html' %} </div>
+  <div>
+    <a id="lazyLoadLink" href="javascript:void(0);" data-page="2"> Cargar mas restaurantes </a>
+  </div>
+</body>
+{%endblock%}

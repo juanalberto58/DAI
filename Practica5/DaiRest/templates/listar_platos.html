@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+{% block styles %}
+  <link href="/static/registro.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+  <div class="starter-template">
+    <h2 class="form-signup-heading">Platos</h2>
+      <div class="col-sm-4">
+      <ul>
+        {%for item in listplatos%}
+          <li>{{item.nombre}} <br> {{item.alergeno}} <br> {{item.precio}}€  </li>
+        {%endfor%}
+
+        <br>
+
+        <div id="container">
+
+        <br>
+
+        </div>
+        <script src="https://code.highcharts.com/highcharts.src.js"></script>
+        <script type="text/javascript">
+            Highcharts.chart('container', {
+              chart: {
+              type: 'column'
+            },
+              title: {
+              text: 'Listado de platos'
+            },
+              xAxis: {
+                categories: ['precio']
+              },
+                series:[
+                {%for item in listplatos%}
+                {
+                    name: '{{item.nombre}}',
+                    data: [{{item.precio}}]
+                },
+                {%endfor%}
+            ]});
+   </script>
+      </ul>
+      </div>
+  </div>
+{% endblock %}

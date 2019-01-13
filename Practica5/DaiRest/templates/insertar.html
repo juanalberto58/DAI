@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% block styles %}
+  <link href="/static/register_style.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <form method="POST" class="form-signup" action="{%url 'insertado'%}">
+      {% csrf_token %}
+      <h2 class="form-signup-heading">Insertar restaurante</h2>
+      <input name="name" type="names" class="form-control" placeholder="Nombre" required autofocus>
+      <br>
+      <input name="lat" type="names" class="form-control" placeholder="Latitud" required autofocus>
+      <br>
+      <input name="long" type="names" class="form-control" placeholder="Longitud" required autofocus>
+      <br>
+      <input class="btn btn-lg btn-primary btn-block" type="submit" value="insertar" name="submit">
+    </form>
+  </div>
+{% endblock %}

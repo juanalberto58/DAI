@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+{% block styles %}
+  <link href="/static/registro.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+  <div class="container data-form">
+
+  {% if rendered %}
+    <h2>Modificado!!</h2>
+  {% else %}
+    <!----form method="POST" class="form-signup" action="/guarda_plato">
+      {% csrf_token %}
+      <h2 class="form-signup-heading">Añade platos</h2>
+      <input name="nombre_plato" type="names" class="form-control" placeholder="Nombre Plato" required autofocus>
+      <br>
+      <input name="precio" type="names" class="form-control" placeholder="Precio" required autofocus>
+      <br>
+      <input name="alergeno" type="names" class="form-control" placeholder="Alergeno" required autofocus>
+      <br>
+      <input class="btn btn-lg btn-primary btn-block" type="submit" value="Guardar Plato" name="submit">
+    </form>
+  ---->
+  <form method="POST" class="form-signup" action="/guarda_plato">
+  {% csrf_token %}
+  {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+  {% endfor %}
+  {% for fields in form.visible_fields %}
+    {{ fields.errors }}
+    {{ fields.help_text }}
+    {{ fields }}<br><br>
+  {%endfor%}
+  <p><input type="submit" name="submit" value="Insertar Plato ">
+  </form>
+  {%endif%}
+  </div>
+{% endblock %}

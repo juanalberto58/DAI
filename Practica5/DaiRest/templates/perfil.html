@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+{% block styles %}
+  <link href="/static/style.css" rel="stylesheet">
+{% endblock %}
+{}
+{% block content %}
+  <div class="starter-template">
+    <p>Tu nombre es: <strong>{{ user }}</strong></p>
+    <p>Tu apellido es: <strong>{{ lastname }}</strong></p>
+    <p>Tu DNI es:  <strong>{{ dni }}</strong></p>
+  </div>
+
+{% endblock %}

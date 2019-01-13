@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+{% block styles %}
+  <link href="/static/registro.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+  <div class="starter-template">
+    <h2 class="form-signup-heading">Busqueda</h2>
+    <style>
+     #map {
+       height: 400px;
+       width: 100%;
+      }
+    </style>
+
+    {%for item in nameres%}
+      {{item}}
+
+      <div id="map"></div>
+      <script>
+
+        function initMap() {
+          var myLatLng = {lat: parseFloat({{item.location.coordinates.1}}), lng: parseFloat({{item.location.coordinates.0}})};
+        // Create a map object and specify the DOM element
+        // for display.
+
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 6,
+            center: myLatLng
+          });
+          var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map
+          });
+      }
+      </script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9mxP9vxpUrjZYfVcJgD4aVdPfzN955QM&callback=initMap"
+  type="text/javascript"></script>
+    {%endfor%}
+
+  </div>
+{% endblock %}

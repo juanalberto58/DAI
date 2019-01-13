@@ -1,0 +1,14 @@
+$(document).ready(function(){
+    $('.nav-link').click(function(){
+      if($(this).attr('id')=='ocultar'){
+        $('#logo').hide(3000);
+        $('#logo').hide("fast");
+        $('#logo').hide("linear");
+      }
+      if($(this).attr('id')=='mostrar'){
+        $('#logo').show(3000);
+  			$('#logo').show("fast");
+        $('#logo').show("swing");
+      }
+    });
+});
